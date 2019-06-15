@@ -1,0 +1,272 @@
+{
+  "project_info": {
+    "project_number": "402777503880",
+    "firebase_url": "https://serviceapps-806b6.firebaseio.com",
+    "project_id": "serviceapps-806b6",
+    "storage_bucket": "serviceapps-806b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:a8f94b96162cda3e",
+        "android_client_info": {
+          "package_name": "com.wiselap.accounts_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:bb344d86c5913e5d",
+        "android_client_info": {
+          "package_name": "wisebill.milkman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:f47a3a034fa81895",
+        "android_client_info": {
+          "package_name": "wisebill.milkman_Demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:c701ecd1fd5e5588",
+        "android_client_info": {
+          "package_name": "wisebill.milkman_Developer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:5a532da6c095a3bc",
+        "android_client_info": {
+          "package_name": "wisebill.wiseadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:991ee8666553951d",
+        "android_client_info": {
+          "package_name": "wisebill.wiseadmin_Demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:98bb22f8a4db7f9d",
+        "android_client_info": {
+          "package_name": "wisebill.wiselap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:1e910a30b7219f2d",
+        "android_client_info": {
+          "package_name": "wisebill.wiselap_Demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402777503880:android:ad9f7d61c3e2ebe2",
+        "android_client_info": {
+          "package_name": "wisebill.wiselap_Developer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2_WZwGpAib4r9zXmGKladgXExpy07T7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402777503880-6kbo4n0rfdagoq1rco7p2d3f8u28knvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/expense_edit_toolbar"
+                layout="@layout/user_toolbar"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_below="@+id/ll1"
+            android:layout_above="@+id/ll3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ScrollView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                >
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/emailId"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Expense Type"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+
+                        />
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/expense_ID"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="10"
+                        android:hint="Expense Type"
+                        android:focusable="false"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:paddingLeft="5dp"
+                        />
+                    <TextView
+                        android:id="@+id/office_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center_vertical"
+                        android:text="Select Date"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+
+                        />
+                    <EditText
+                        android:id="@+id/date_ID"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:onClick="onClick"
+                        android:hint="Select Date (yyyy-mm-dd)"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:paddingLeft="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Remarks"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+                    <EditText
+                        android:id="@+id/remark_ID"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:ems="10"
+                        android:hint="Remarks"
+                        android:inputType="text"
+                        android:maxLength="10"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:paddingLeft="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/owner"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Expense Amount"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+
+                    <EditText
+                        app:met_iconLeft="@drawable/wiselogo"
+                        app:met_autoValidate="true"
+                        android:id="@+id/amount_ID"
+                        android:layout_width="match_parent"
+                        android:layout_height="47dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_border_edittext"
+                        android:ems="10"
+                        android:hint="Amount"
+                        android:inputType="numberDecimal"
+                        android:maxLength="30"
+                        android:paddingLeft="10dp" />
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Upload Image"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:layout_weight=".2"
+                            android:id="@+id/upload_btn_ID"
+                            android:layout_width="108dp"
+                            android:layout_height="45dp"
+                            android:layout_margin="10dp"
+                            android:onClick="onClick"
+                            android:background="@drawable/rounded_border_edittext"
+                            android:text="Choose" />
+                        <ImageView
+                            android:layout_weight="0.5"
+                            android:layout_gravity="end"
+                            android:id="@+id/upload_image_ID"
+                            android:layout_width="206dp"
+                            android:layout_height="150dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/add_expense_ID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:background="@color/colorblue"
+                android:text="ADD"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
