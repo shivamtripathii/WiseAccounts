@@ -84,6 +84,7 @@ public class ExpenseTypePresenter<V extends ExpenseTypeContract.View> extends Ba
 
                  if(wrappedResponse.getMeta().getId() == ResponseCode.SUCCESS)
                 {
+                    Log.d(TAG, "hjsgfkja"+new Gson().toJson(wrappedResponse));
                     getView().removeItemFromList();
                 }
 

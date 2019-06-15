@@ -37,7 +37,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseH
             expenseHolder.expensename.setText(expenseModel.getExpense_name());
             expenseHolder.expenseamount.setText(String.valueOf(expenseModel.getExpense_amount()));
             expenseHolder.expensetype.setText(expenseModel.getRemarks());
-
+            expenseHolder.expensedate.setText(expenseModel.getDate());
             expenseHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -52,14 +52,14 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseH
     }
 
     public class ExpenseHolder extends RecyclerView.ViewHolder{
-        TextView expensename,expensetype,expenseamount;
+        TextView expensename,expensetype,expenseamount,expensedate;
         public ExpenseHolder(@NonNull View itemView) {
 
             super(itemView);
             expensename=itemView.findViewById(R.id.exp_name);
             expensetype=itemView.findViewById(R.id.exp_type);
             expenseamount=itemView.findViewById(R.id.amount);
-
+            expensedate=itemView.findViewById(R.id.DateText);
         }
     }
 }

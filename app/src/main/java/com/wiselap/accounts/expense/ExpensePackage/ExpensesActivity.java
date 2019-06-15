@@ -76,9 +76,9 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             mPresenter.getExpense(new ExpenseMethodModel());
-        } else if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
+        } else if (requestCode == 2) {
             mPresenter.getExpense(new ExpenseMethodModel());
             viewList.get(0).setBackgroundResource(R.color.colorwhite);
             viewList.clear();

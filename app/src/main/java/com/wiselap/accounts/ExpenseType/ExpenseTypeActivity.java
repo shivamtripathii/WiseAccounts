@@ -228,7 +228,8 @@ public class ExpenseTypeActivity extends BaseActivity implements ExpenseTypeCont
         alertDialog.setPositiveButton(getString(R.string.Yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mPresenter.deleteExpenseType(expenseTypeList.get(x));
+                ExpenseType expenseType = expenseTypeList.get(x);
+                mPresenter.deleteExpenseType(expenseType);
                 dialog.cancel();
             }
         });
