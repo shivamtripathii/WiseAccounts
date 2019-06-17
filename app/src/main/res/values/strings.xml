@@ -10,7 +10,9 @@
     </string-array>
     <!-- Date Picker -->
     <string name="dateFormat" translatable="false">yyyy-MM-dd</string>
+    <string name="dateFormat1" translatable="false">dd MMM yy</string>
     <string name="timeFormat" translatable="false">yyyy-MM-dd</string>
+    <string name="timeFormat1" translatable="false">dd MMM yy</string>
     <string name="period" translatable="false">%1$s – %2$s</string>
 
 <string name="Invalid_Address"> Address is Invalid</string>

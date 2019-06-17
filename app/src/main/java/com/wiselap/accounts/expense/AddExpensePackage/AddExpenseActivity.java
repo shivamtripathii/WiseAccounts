@@ -26,9 +26,12 @@ import com.wiselap.accounts.expense.ExpensePackage.ExpenseReturnModel;
 import com.wiselap.accounts.utils.PreferenceUtils;
 import com.wiselap.accounts.utils.RealPathUtil;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -57,12 +60,12 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
         if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
             expenseReturnModel = (ExpenseReturnModel) getIntent().getSerializableExtra("edit");
             Log.d("Delete", "onCreate: " + expenseReturnModel.getExpense_name());
-            activityAddExpenseBinding.dateID.setText(expenseReturnModel.getDate());
+            activityAddExpenseBinding.dateID.setText(dateConvertMM(expenseReturnModel.getDate()));
 
             activityAddExpenseBinding.remarkID.setText(expenseReturnModel.getRemarks());
             activityAddExpenseBinding.amountID.setText("" + expenseReturnModel.getExpense_amount());
         } else if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.ADD)) {
-            String todaysDate = getIntent().getStringExtra("Date");
+            String todaysDate = getIntent().getStringExtra("Date1");
             activityAddExpenseBinding.dateID.setText(todaysDate);
         }
     }
@@ -96,9 +99,9 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
                         amount = Long.parseLong(activityAddExpenseBinding.amountID.getText().toString().trim());
                     if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
                         ExpenseReturnModel expenseReturnModel = (ExpenseReturnModel) getIntent().getSerializableExtra("edit");
-                        presenter.updateExpense(new UpdateExpenseMethodModel(date, expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile(), expenseReturnModel.getExpenseId()));
+                        presenter.updateExpense(new UpdateExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile(), expenseReturnModel.getExpenseId()));
                     } else {
-                        presenter.addExpense(new AddExpenseMethodModel(date, expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile()));
+                        presenter.addExpense(new AddExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile()));
                     }
                     setResult(RESULT_OK, intent);
                     finish();
@@ -109,6 +112,7 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
                 DialogFragment datePicker = new DatePickerFragment();
                 datePicker.show(getSupportFragmentManager(), "Date Picker");
                 break;
+
 
             case R.id.upload_btn_ID:
                 openGallery();
@@ -140,7 +144,7 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
         String date = simpleDateFormat.format(calendar.getTime());
         activityAddExpenseBinding.dateID.setText(date);
     }
@@ -148,7 +152,7 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
 
     @Override
     public void sendExpenseType(ArrayList<String> expenseType) {
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, expenseType);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, expenseType);
         Log.d("spinner", "sendExpenseType: " + new Gson().toJson(expenseType));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         activityAddExpenseBinding.expenseID.setAdapter(adapter);
@@ -170,5 +174,29 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    // MM to MMM Date
+    public String dateConvertMM(String date)  {
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String finaldate=new SimpleDateFormat("dd MMM yyyy",Locale.getDefault()).format(date1);
+        return finaldate;
+    }
+    //MMM to MM Date
+    public String dateConvertMMM(String date)
+    {
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("dd MMM yyyy",Locale.getDefault()).parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String finaldate=new SimpleDateFormat("yyyy-MM-dd",Locale.getDefault()).format(date1);
+        return finaldate;
     }
 }

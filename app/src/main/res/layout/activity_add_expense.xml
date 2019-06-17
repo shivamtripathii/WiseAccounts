@@ -57,7 +57,7 @@
                     <android.support.v7.widget.AppCompatSpinner
                         android:id="@+id/expense_ID"
                         android:layout_width="match_parent"
-                        android:layout_height="47dp"
+                        android:layout_height="46dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
@@ -65,9 +65,9 @@
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="8dp"
                         android:ems="10"
+                        android:background="@android:drawable/btn_dropdown"
                         android:hint="Expense Type"
                         android:focusable="false"
-                        android:background="@drawable/rounded_border_edittext"
                         android:paddingLeft="5dp"
                         />
                     <TextView

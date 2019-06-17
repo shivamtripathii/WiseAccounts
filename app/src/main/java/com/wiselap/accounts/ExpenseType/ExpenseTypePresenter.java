@@ -66,15 +66,12 @@ public class ExpenseTypePresenter<V extends ExpenseTypeContract.View> extends Ba
     @Override
     public void deleteExpenseType(ExpenseType expenseType) {
         getView().showLoadingDialog();
-
-        expenseType.setAmount(null);
-        expenseType.setAccountingProfileId(null);
-        expenseType.setExpense_name(null);
-        expenseType.setFrequency(null);
+        ExpenseType expenseType1 = new ExpenseType(expenseType.getId(), null, null,null);
+        expenseType1.setAccountingProfileId(null);
 
         Log.d(TAG, "hjsgfkja"+new Gson().toJson(expenseType));
 
-        getDisposable().add(serviceProvider.getWrappedService().deleteExpenseTypes(expenseType)
+        getDisposable().add(serviceProvider.getWrappedService().deleteExpenseTypes(expenseType1)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
         .observeOn(getSchedulerProvider().getUiScheduler())
         .subscribeWith(new DisposableObserver<WrappedResponse>() {

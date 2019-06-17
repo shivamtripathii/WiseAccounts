@@ -49,6 +49,7 @@
                     android:layout_toStartOf="@+id/datepick_ID"
                     android:background="@drawable/rounded_border_edittext"
                     android:ems="10"
+                    android:onClick="onClick"
                     android:focusable="false"
                     android:gravity="center"
                     android:hint="From Date - To Date"

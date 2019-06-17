@@ -99,10 +99,9 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
                 Intent intentadd = new Intent(ExpensesActivity.this, AddExpenseActivity.class);
                 Date c = Calendar.getInstance().getTime();
                 System.out.println("Current time => " + c);
-
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                String formattedDate = df.format(c);
-                intentadd.putExtra("Date",formattedDate);
+                SimpleDateFormat df1 = new SimpleDateFormat("dd MMM yyyy");
+                String formattedDate1 = df1.format(c);
+                intentadd.putExtra("Date1",formattedDate1);
                 intentadd.putExtra(AppConstants.Operation,AppConstants.ADD);
                 startActivityForResult(intentadd,1);
                 break;
@@ -122,7 +121,7 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
                     startActivityForResult(intent, 2);
                 }
                 break;
-            case R.id.datepick_ID:
+            case R.id.datepick_ID :
                 new SlyCalendarDialog()
                         .setSingle(false)
                         .setFirstMonday(false)
@@ -132,27 +131,19 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
                         .setHeaderColor(R.color.colorblue)
                         .show(getSupportFragmentManager(), "Expense_Date_Pick");
                 break;
+
+            case R.id.datefrom_ID:
+                new SlyCalendarDialog()
+                        .setSingle(false)
+                        .setFirstMonday(false)
+                        .setCallback(this)
+                        .setSelectedTextColor(R.color.colorblue)
+                        .setSelectedColor(R.color.colorblue)
+                        .setHeaderColor(R.color.colorblue)
+                        .show(getSupportFragmentManager(), "Expense_Date_Pick");
+                break;
+
             case R.id.del_btn:
-               /* if (k==-1)
-                    FancyToast.makeText(this, "Choose Expense to Delete", 20, R.drawable.ic, false).show();
-                else
-                {
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ExpensesActivity.this);
-                    alertDialogBuilder.setTitle("Do you really want to delete expense ?").setMessage("").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            delete(k);
-                            viewList.get(0).setBackgroundResource(R.color.colorwhite);
-                            viewList.clear();
-                            expenseList.clear();
-                            activityExpensesBinding.expenseToolbar.addBtn.setVisibility(View.VISIBLE);
-                            k = -1;
-                        }
-                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Nothing
-                        }
-                    }).show();
-                }*/
                 if(k!=-1)
                 {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ExpensesActivity.this);
@@ -241,7 +232,7 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
 
                 ).show();
             } else {
-                String expDate=getString(R.string.period, new SimpleDateFormat(getString(R.string.dateFormat), Locale.getDefault()).format(firstDate.getTime()), new SimpleDateFormat(getString(R.string.timeFormat), Locale.getDefault()).format(secondDate.getTime()));
+                String expDate=getString(R.string.period, new SimpleDateFormat(getString(R.string.dateFormat1), Locale.getDefault()).format(firstDate.getTime()), new SimpleDateFormat(getString(R.string.timeFormat1), Locale.getDefault()).format(secondDate.getTime()));
                 //Toast.makeText(this,expDateFrom+"...."+expDateTo,Toast.LENGTH_LONG).show();
                 activityExpensesBinding.datefromID.setText(expDate);
 
@@ -254,11 +245,11 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
         }
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         if (mPresenter != null){
             mPresenter.getExpense(new ExpenseMethodModel());
         }
         super.onResume();
-    }
+    }*/
 }
