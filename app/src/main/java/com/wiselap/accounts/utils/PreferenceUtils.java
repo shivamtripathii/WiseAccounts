@@ -30,10 +30,15 @@ public class PreferenceUtils {
     }
 
     public void saveAccountingProfileId(long accountingProfileId){
-        Log.d("pakaskj","djfksdjfkldsjfk accountingProfileId "+accountingProfileId);
+        //Log.d("pakaskj","djfksdjfkldsjfk accountingProfileId "+accountingProfileId);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putLong(AppConstants.accountingProfileId, accountingProfileId);
+        editor.commit();
+    }
+    public void saveShopAgentId(long shopAgentId){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(AppConstants.shopAgentId, shopAgentId);
         editor.commit();
     }
     public String getEmailId(){
@@ -50,7 +55,9 @@ public class PreferenceUtils {
         return sharedPreferences.getLong(AppConstants.loginId, 0);
     }
 
-
+    public long getShopAgentId( ){
+        return sharedPreferences.getLong(AppConstants.shopAgentId, 0);
+    }
 
 
     public long getAccountingProfile(){

@@ -4,7 +4,7 @@ package com.wiselap.accounts.model;
 import com.google.gson.annotations.SerializedName;
 
 public class ApplicationUserID {
-    @SerializedName("applicationUserId")
+    @SerializedName("loginId")
     private long applicationUserId;
 
     public ApplicationUserID(long applicationUserId) {

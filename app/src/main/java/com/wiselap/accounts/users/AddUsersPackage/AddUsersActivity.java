@@ -47,7 +47,6 @@ public class AddUsersActivity extends BaseActivity implements AdapterView.OnItem
             userReturnModel = (UserReturnModel) getIntent().getSerializableExtra("users");
             username.setText(userReturnModel.getUserName());
             profilename.setSelection(adapter.getPosition(userReturnModel.getUserProfile()));
-            accountingUserId=userReturnModel.getAccountingUserId();
             accountingProfileId=userReturnModel.getAccountingProfileId();
             activityAddUsersBinding.userID.setText(userReturnModel.getUserId());
 
@@ -70,9 +69,9 @@ public class AddUsersActivity extends BaseActivity implements AdapterView.OnItem
                     String profile = profilename.getSelectedItem().toString().trim();
                     String userid = activityAddUsersBinding.userID.getText().toString().trim();
                     if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
-                        presenter.updateUser(new UpdateUserMethodModel(accountingUserId,accountingProfileId,(long)0,user,userid,profile));
+                        presenter.updateUser(new UpdateUserMethodModel(accountingProfileId,preferenceUtils.getShopAgentId(),user,userid,profile));
                     } else if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.ADD)) {
-                        presenter.getMeta(new AddUserMethodModel(preferenceUtils.getAccountingProfile(),(long)0, user, profile, userid));
+                        presenter.getMeta(new AddUserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId(), user, profile, userid));
                     }
 
                 } else

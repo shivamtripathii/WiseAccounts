@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FundTransfer.FundTransferActivity"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Details" />
-        <activity android:name=".SignIn.LoginActivity"> </activity>
+        <activity android:name=".SignIn.LoginActivity"></activity>
         <activity android:name=".Report.Expense_Report.ExpenseReportDisplay.ExpenseReportDisplayActivity" />
         <activity android:name=".Report.Expense_Report.ExpenseReportSearch.ExpenseReportActivity" />
         <activity android:name=".Select_Account.SelectAccountActivity" />
@@ -31,18 +32,36 @@
         <activity
             android:name=".Select_Entity.SelectEntityActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Configuration.ConfigurationActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ExpenseType.ExpenseTypeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ExpenseType.AddExpenseType.AddExpenseTypeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".Report.Salary_Report.SalaryReportSearch.SalaryReportActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".Report.Salary_Report.SalaryReportDisplay.SalaryReportDisplayActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".Personal.PersonalActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".users.UsersPackage.UsersActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".users.AddUsersPackage.AddUsersActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".expense.AddExpensePackage.AddExpenseActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".expense.ExpensePackage.ExpensesActivity" android:screenOrientation="portrait"/>
-
+        <activity
+            android:name=".Configuration.ConfigurationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExpenseType.ExpenseTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ExpenseType.AddExpenseType.AddExpenseTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Report.Salary_Report.SalaryReportSearch.SalaryReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Report.Salary_Report.SalaryReportDisplay.SalaryReportDisplayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Personal.PersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".users.UsersPackage.UsersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".users.AddUsersPackage.AddUsersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".expense.AddExpensePackage.AddExpenseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".expense.ExpensePackage.ExpensesActivity"
+            android:screenOrientation="portrait" />
     </application>
-
 
 </manifest>

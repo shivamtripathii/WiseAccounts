@@ -1,15 +1,14 @@
 package com.wiselap.accounts.utils;
 
 public class URLS {
-
+    //http://192.168.0.100:8080/accounting-0.0.1/
     public static String ENVIRONMENT = "Testing";
 
     public static final String SCHEME = "http";
 
-    public static final String AUTHORITY = "www.wiselap.in:8081";
+    public static final String AUTHORITY = "192.168.0.100:8080";
 
-    //public static final String BASE_PATH = "wiselap-0.0.1-Testing";//wiselap-0.0.1-Developer
-    public static final String BASE_PATH = "wisebooks";
+    public static final String BASE_PATH = "accounting-0.0.1";
 
     public static final String BASE_URL = SCHEME+"://"+AUTHORITY+"/"+BASE_PATH+"/";
 

@@ -95,7 +95,6 @@ public class SelectAccountActivity extends BaseActivity implements SelectAccount
                 break;
             case R.id.addBtn:
                 startActivity(new Intent(SelectAccountActivity.this, SelectEntityActivity.class));
-                finish();
                 break;
         }
     }
@@ -109,6 +108,7 @@ public class SelectAccountActivity extends BaseActivity implements SelectAccount
         if (accounts!=null){
             preferenceUtils.saveAccountingProfileId(accounts.get(position).getAccountingProfileId());
             preferenceUtils.saveApplicationType(accounts.get(position).getApplicationTypeName());
+            preferenceUtils.saveShopAgentId(accounts.get(position).getShopAgentId());
             startActivity(new Intent(this, Homepage.class));
             finish();
         }

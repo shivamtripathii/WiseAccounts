@@ -2,25 +2,19 @@ package com.wiselap.accounts.users.AddUsersPackage;
 
 public class UpdateUserMethodModel {
 
-
-    private Long accountingUserId;
     private Long accountingProfileId;
     private Long shopAgentId;
     private String userName;
     private String userId;
     private String userProfile;
 
-    public UpdateUserMethodModel(Long accountingUserId, Long accountingProfileId, Long shopAgentId, String userName, String userId, String userProfile) {
-        this.accountingUserId = accountingUserId;
+
+    public UpdateUserMethodModel( Long accountingProfileId, Long shopAgentId, String userName, String userId, String userProfile) {
         this.accountingProfileId = accountingProfileId;
         this.shopAgentId = shopAgentId;
         this.userName = userName;
         this.userId = userId;
         this.userProfile = userProfile;
-    }
-
-    public Long getAccountingUserId() {
-        return accountingUserId;
     }
 
     public Long getAccountingProfileId() {

@@ -5,6 +5,7 @@ public class UserMethodModel {
     Long accountingProfileId;
     Long shopAgentId;
 
+
     public UserMethodModel(Long accountingProfileId, Long shopAgentId) {
         this.accountingProfileId = accountingProfileId;
         this.shopAgentId = shopAgentId;

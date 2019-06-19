@@ -78,4 +78,5 @@ public class AppConstants {
 
     public static final String accountingProfileId = "accountingProfileId";
     public static final String applicationType = "applicationType";
+    public static final String shopAgentId="shopAgentId";
 }

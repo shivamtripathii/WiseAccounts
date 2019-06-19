@@ -15,7 +15,7 @@
     <string name="timeFormat1" translatable="false">dd MMM yy</string>
     <string name="period" translatable="false">%1$s – %2$s</string>
 
-<string name="Invalid_Address"> Address is Invalid</string>
+    <string name="Invalid_Address"> Address is Invalid</string>
 
     <!-- Buttons -->
     <string name="Next">Next</string>
@@ -107,8 +107,6 @@
     <!-- Select Account -->
     <string name="Expense_Report">Expense Report</string>
     <string name="Salary_Report">Salary Report</string>
-
-
 
 
     <!-- Frequency List-->

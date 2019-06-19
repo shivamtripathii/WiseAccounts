@@ -36,7 +36,6 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
     private int k = -1;
     ArrayList<UserReturnModel> expenseList = new ArrayList<>();
     ArrayList<View> viewList = new ArrayList<>();
-    private int g;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
         activityUsersBinding = DataBindingUtil.setContentView(this, R.layout.activity_users);
         initViews();
         presenter.onAttach(this);
-        presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),(long)0));
+        presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId()));
     }
 
     private void initViews() {
@@ -61,10 +60,10 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
         String profile;
         if (requestCode == 1) {
             if (resultCode != RESULT_OK)
-                presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),(long)0));
+                presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId()));
         } else {
             if (resultCode != RESULT_OK)
-                presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),(long)0));
+                presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId()));
             viewList.get(0).setBackgroundResource(R.color.colorwhite);
             viewList.clear();
             expenseList.clear();
@@ -105,7 +104,7 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(UsersActivity.this);
                     alertDialogBuilder.setTitle("").setMessage("Do you want to Delete ?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            presenter.deleteUser(new DeleteUserMethodModel(arrayList.get(k).getAccountingUserId(),arrayList.get(k).getUserId()));
+                            presenter.deleteUser(new DeleteUserMethodModel(preferenceUtils.getAccountingProfile(),arrayList.get(k).getShopAgentId(),arrayList.get(k).getUserId()));
                         }
                     }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -130,7 +129,6 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
 
     @Override
     public void userEdit(View v, int i) {
-        g = i;
         if (k == -1) {
             v.setBackgroundResource(R.color.OnSelected);
             viewList.add(v);
@@ -165,6 +163,6 @@ public class UsersActivity extends BaseActivity implements UserContract.view {
         expenseList.clear();
         activityUsersBinding.user1Toolbar.addBtn.setVisibility(View.VISIBLE);
         k = -1;
-        presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),(long)0));
+        presenter.getUsers(new UserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId()));
     }
 }

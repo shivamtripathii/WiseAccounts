@@ -29,12 +29,15 @@ import javax.inject.Inject;
 
 public class Homepage extends BaseActivity implements HomepageAdapter.OnItemViewCLickListener {
     GoogleSignInClient mGoogleSignInClient;
-    String[] item = {"Users", "Expenses", "Reports", "Configuration"};
+    String[] item = {"Users", "Expenses", "Reports", "Configuration", "Approval","Fund Transfer"};
     int[] images =
             {R.drawable.ic_person_black_24dp,
                     R.drawable.expense,
                     R.drawable.report,
-                    R.drawable.configuration};
+                    R.drawable.configuration,
+                    R.drawable.approval,
+            R.drawable.ic_monetization_on_black_24dp
+           };
     RecyclerView recyclerView;
     Toolbar toolbar;
     ActivityHomepageBinding binding;

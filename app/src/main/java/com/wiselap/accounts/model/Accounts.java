@@ -2,7 +2,7 @@ package com.wiselap.accounts.model;
 
 import java.io.Serializable;
 
-public class Accounts implements Serializable {
+public class  Accounts implements Serializable {
 
     private String name;
     private String profile;
