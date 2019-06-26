@@ -20,7 +20,7 @@ import com.wiselap.accounts.constants.AppConstants;
 import com.wiselap.accounts.databinding.ActivityGoogleSignInBinding;
 import com.wiselap.accounts.home_screen.Homepage;
 import com.wiselap.accounts.model.Accounts;
-import com.wiselap.accounts.model.ApplicationUserID;
+import com.wiselap.accounts.model.LoginId;
 import com.wiselap.accounts.model.AuthenticationUsingEmail;
 import com.wiselap.accounts.utils.PreferenceUtils;
 
@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.view {
          if (!preferenceUtils.getEmailId().isEmpty() && preferenceUtils.getAccountingProfile()!=0){
             intentToHomeScreen();
         }else if(!preferenceUtils.getEmailId().isEmpty() && preferenceUtils.getAccountingProfile() == 0){
-            presenter.getAccounts(new ApplicationUserID(preferenceUtils.getApplicationUSerId()));
+            presenter.getAccounts(new LoginId(preferenceUtils.getLoginId()));
         }
     }
 

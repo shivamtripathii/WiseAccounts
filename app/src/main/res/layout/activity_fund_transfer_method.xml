@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/user_toolbar"
+            >
+
+        </include>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_below="@+id/toolbar"
+            android:layout_above="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="6dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:text=" Name *:"
+                    android:textColor="@color/colorblue"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/name_edit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="6dp"
+                        android:text="Amount To Give :"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp" />
+                    <EditText
+                        android:id="@+id/amount"
+                        android:background="@drawable/border"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_height="40dp"
+                        android:focusable="false"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="6dp"
+                        android:text="1000"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/colorblue"
+                        android:textSize="18sp"
+                        android:paddingLeft="6dp"
+                        android:text="Payment By :"/>
+
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/pay_mode"
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:ems="10"
+                        android:padding="10dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/next"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PAY"
+            android:textColor="#fff"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="onClick"
+            />
+    </RelativeLayout>
+</layout>

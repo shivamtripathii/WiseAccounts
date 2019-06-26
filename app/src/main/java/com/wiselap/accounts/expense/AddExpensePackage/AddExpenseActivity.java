@@ -59,11 +59,11 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
         presenter.setAdapter();
         if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
             expenseReturnModel = (ExpenseReturnModel) getIntent().getSerializableExtra("edit");
-            Log.d("Delete", "onCreate: " + expenseReturnModel.getExpense_name());
+            Log.d("Delete", "onCreate: " + expenseReturnModel.getExpenseName());
             activityAddExpenseBinding.dateID.setText(dateConvertMM(expenseReturnModel.getDate()));
 
             activityAddExpenseBinding.remarkID.setText(expenseReturnModel.getRemarks());
-            activityAddExpenseBinding.amountID.setText("" + expenseReturnModel.getExpense_amount());
+            activityAddExpenseBinding.amountID.setText("" + expenseReturnModel.getExpenseAmount());
         } else if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.ADD)) {
             String todaysDate = getIntent().getStringExtra("Date1");
             activityAddExpenseBinding.dateID.setText(todaysDate);
@@ -99,9 +99,9 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
                         amount = Long.parseLong(activityAddExpenseBinding.amountID.getText().toString().trim());
                     if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
                         ExpenseReturnModel expenseReturnModel = (ExpenseReturnModel) getIntent().getSerializableExtra("edit");
-                        presenter.updateExpense(new UpdateExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile(), expenseReturnModel.getExpenseId()));
+                        presenter.updateExpense(new UpdateExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getShopAgentId(), expenseReturnModel.getExpenseId()));
                     } else {
-                        presenter.addExpense(new AddExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getAccountingProfile()));
+                        presenter.addExpense(new AddExpenseMethodModel(dateConvertMMM(date), expense, amount, remarks, preferenceUtils.getLoginId(), presenter.checkExpenseTypeID(expense), preferenceUtils.getShopAgentId()));
                     }
                     setResult(RESULT_OK, intent);
                     finish();
@@ -157,7 +157,7 @@ public class AddExpenseActivity extends BaseActivity implements DatePickerDialog
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         activityAddExpenseBinding.expenseID.setAdapter(adapter);
         if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT))
-            activityAddExpenseBinding.expenseID.setSelection(adapter.getPosition(expenseReturnModel.getExpense_name()));
+            activityAddExpenseBinding.expenseID.setSelection(adapter.getPosition(expenseReturnModel.getExpenseName()));
         activityAddExpenseBinding.expenseID.setOnItemSelectedListener(this);
     }
 

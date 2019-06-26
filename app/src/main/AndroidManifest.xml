@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FundTransfer.FundTransferActivity"></activity>
+        <activity android:name=".FundTransferMethod.FundTransferMethodActivity"></activity>
+        <activity android:name=".FundUsers.FundUsersActivity" />
+        <activity android:name=".FundTransfer.FundTransferActivity" />
+        <activity android:name=".Approval.ApprovalDefaultActivity" />
+        <activity android:name=".Approval.ApprovalDetails.ApprovalDetailsActivity" />
+        <activity android:name=".ApplicationSetting.ApplicationSettingActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +26,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Details" />
-        <activity android:name=".SignIn.LoginActivity"></activity>
+        <activity android:name=".SignIn.LoginActivity" />
         <activity android:name=".Report.Expense_Report.ExpenseReportDisplay.ExpenseReportDisplayActivity" />
         <activity android:name=".Report.Expense_Report.ExpenseReportSearch.ExpenseReportActivity" />
         <activity android:name=".Select_Account.SelectAccountActivity" />
         <activity android:name=".Office.OfficeActivity" />
         <activity android:name=".Report.ReportActivity" />
-        <activity android:name=".Home.HomeActivity" />
         <activity android:name=".home_screen.Homepage" />
         <activity
             android:name=".Select_Entity.SelectEntityActivity"
@@ -62,6 +66,7 @@
         <activity
             android:name=".expense.ExpensePackage.ExpensesActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".Report.Expense_Report.Calender.CalenderActivity" />
     </application>
 
 </manifest>

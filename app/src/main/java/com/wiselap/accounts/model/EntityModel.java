@@ -9,9 +9,14 @@ public class EntityModel {
         private String ownerName;
         private String address;
         private String profileEntity;
-        private String applicationUserId;
+        private String applicationTypeName;
+        private long applicationUserId;
+        private long shopAgentId;
 
-    public EntityModel(long accountingProfileId, String officeName, String name, String contactNo, String ownerName, String address, String profileEntity, String applicationUserId) {
+
+    public EntityModel(long accountingProfileId, String officeName, String name, String contactNo,
+                       String ownerName, String address, String profileEntity,
+                       long applicationUserId, long shopAgentId, String applicationTypeName) {
         this.accountingProfileId = accountingProfileId;
         this.officeName = officeName;
         this.name = name;
@@ -20,8 +25,9 @@ public class EntityModel {
         this.address = address;
         this.profileEntity = profileEntity;
         this.applicationUserId = applicationUserId;
+        this.shopAgentId = shopAgentId;
+        this.applicationTypeName = applicationTypeName;
     }
-
     public long getAccountingProfileId() {
         return accountingProfileId;
     }
@@ -78,11 +84,28 @@ public class EntityModel {
         this.profileEntity = profileEntity;
     }
 
-    public String getApplicationUserId() {
+
+    public long getApplicationUserId() {
         return applicationUserId;
     }
 
-    public void setApplicationUserId(String applicationUserId) {
+    public void setApplicationUserId(long applicationUserId) {
         this.applicationUserId = applicationUserId;
+    }
+
+    public long getShopAgentId() {
+        return shopAgentId;
+    }
+
+    public void setShopAgentId(long shopAgentId) {
+        this.shopAgentId = shopAgentId;
+    }
+
+    public String getApplicationTypeName() {
+        return applicationTypeName;
+    }
+
+    public void setApplicationTypeName(String applicationTypeName) {
+        this.applicationTypeName = applicationTypeName;
     }
 }

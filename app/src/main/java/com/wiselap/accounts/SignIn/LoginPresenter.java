@@ -8,7 +8,7 @@ import com.wiselap.accounts.constants.ResponseCode;
 import com.wiselap.accounts.interfaces.SchedulerProvider;
 import com.wiselap.accounts.interfaces.ServiceProvider;
 import com.wiselap.accounts.model.Accounts;
-import com.wiselap.accounts.model.ApplicationUserID;
+import com.wiselap.accounts.model.LoginId;
  import com.wiselap.accounts.model.AuthenticationUsingEmail;
 import com.wiselap.accounts.retrofit.WrappedResponse;
 import com.wiselap.accounts.utils.NetUtils;
@@ -54,7 +54,7 @@ public class LoginPresenter<V extends LoginContract.view> extends BasePresenterI
                             getView().intentToSelectEntitiy();
                         }else if(emailDataWrappedResponse.getMeta().getId() == ResponseCode.ERROR){
                             getPreferenceUtils().saveLoginInfo(emailDataWrappedResponse.getData(),authenticationUsingEmail.getEmail());
-                            getAccounts(new ApplicationUserID(emailDataWrappedResponse.getData().getApplicationUserId()));
+                            getAccounts(new LoginId(emailDataWrappedResponse.getData().getLoginId()));
                         }
 
                     }
@@ -74,9 +74,9 @@ public class LoginPresenter<V extends LoginContract.view> extends BasePresenterI
     }
 
     @Override
-    public void getAccounts(ApplicationUserID applicationUserID) {
-        Log.d("832872", "hsjgfahjg" + new Gson().toJson(applicationUserID));
-        getDisposable().add(serviceProvider.getService().getAccounts(applicationUserID)
+    public void getAccounts(LoginId loginId) {
+        Log.d("832872", "hsjgfahjg" + new Gson().toJson(loginId));
+        getDisposable().add(serviceProvider.getService().getAccounts(loginId)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
                 .observeOn(getSchedulerProvider().getUiScheduler())
                 .subscribeWith(new DisposableObserver<ArrayList<Accounts>>() {

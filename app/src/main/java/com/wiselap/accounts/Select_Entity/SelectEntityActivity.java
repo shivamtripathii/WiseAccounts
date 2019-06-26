@@ -1,5 +1,7 @@
 package com.wiselap.accounts.Select_Entity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
@@ -10,14 +12,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.wiselap.accounts.Office.OfficeActivity;
 import com.wiselap.accounts.Personal.PersonalActivity;
 import com.wiselap.accounts.R;
  import com.wiselap.accounts.Select_Account.SelectAccountActivity;
+import com.wiselap.accounts.SignIn.LoginActivity;
 import com.wiselap.accounts.adapters.SelectEntityAdapter;
 import com.wiselap.accounts.base_class.BaseActivity;
+import com.wiselap.accounts.constants.AppConstants;
 import com.wiselap.accounts.databinding.ActivitySelectEntityBinding;
 import com.wiselap.accounts.model.Item;
+import com.wiselap.accounts.utils.PreferenceUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +51,10 @@ public class SelectEntityActivity extends BaseActivity implements SelectEntityCo
     @Inject
     SelectEntityPresenter<SelectEntityContract.SEView> mPresenter;
 
+    @Inject
+    PreferenceUtils preferenceUtils;
+    GoogleSignInClient mGoogleSignInClient;
+
     SelectEntityAdapter adapter;
     List<Item> item_list = new ArrayList<>();
     RecyclerView recyclerView;
@@ -53,6 +65,10 @@ public class SelectEntityActivity extends BaseActivity implements SelectEntityCo
         super.onCreate(savedInstanceState);
         select_binding = DataBindingUtil.setContentView(this, R.layout.activity_select_entity);
         select_binding.toolbar.title.setText(getString(R.string.Select_Entity));
+        select_binding.toolbar.addBtn.setVisibility(View.GONE);
+
+        select_binding.toolbar.editBtn.setVisibility(View.GONE);
+        select_binding.toolbar.delBtn.setImageResource(R.drawable.exit);
         mPresenter.onAttach(this);
 
         //Sets the Item List for Select Entity
@@ -72,21 +88,25 @@ public class SelectEntityActivity extends BaseActivity implements SelectEntityCo
         super.onClick(view);
         switch (view.getId()){
             case R.id.backBtn:
-                startActivity(new Intent(SelectEntityActivity.this, SelectAccountActivity.class));
                 showMessage(getString(R.string.Account_not_created));
                 finish();
+                break;
+            case R.id.del_btn:
+                AlertBox();
                 break;
         }
     }
 
     private void manageOffice(){
-        startActivity(new Intent(this, OfficeActivity.class));
-        finish();
+        Intent intent = new Intent(this, OfficeActivity.class);
+        intent.putExtra(AppConstants.Operation, AppConstants.ADD);
+        startActivity(intent);
     }
 
     private void managePersonal() {
-        startActivity(new Intent(this, PersonalActivity.class));
-        finish();
+        Intent intent = new Intent(this, PersonalActivity.class);
+        intent.putExtra(AppConstants.Operation, AppConstants.ADD);
+        startActivity(intent);
     }
 
 
@@ -127,5 +147,26 @@ public class SelectEntityActivity extends BaseActivity implements SelectEntityCo
                 managePersonal();
                 break;
         }
+    }
+
+    private void AlertBox() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Google Logout").setMessage("Do you want to Logout?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken(getString(R.string.default_web_client_id))
+                        .requestEmail()
+                        .build();
+
+                mGoogleSignInClient = GoogleSignIn.getClient(SelectEntityActivity.this, gso);
+                mGoogleSignInClient.signOut();
+                preferenceUtils.clearAll();
+                startActivity(new Intent(SelectEntityActivity.this, LoginActivity.class));
+                finish();
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        }).show();
     }
 }

@@ -1,11 +1,16 @@
 package com.wiselap.accounts.di.component;
 
 
+import com.wiselap.accounts.ApplicationSetting.ApplicationSettingActivity;
 import com.wiselap.accounts.Configuration.ConfigurationActivity;
 import com.wiselap.accounts.ExpenseType.AddExpenseType.AddExpenseTypeActivity;
 import com.wiselap.accounts.ExpenseType.AddExpenseType.ApiModule;
 import com.wiselap.accounts.ExpenseType.ExpenseTypeActivity;
 import com.wiselap.accounts.ExpenseType.ExpenseTypeModule;
+import com.wiselap.accounts.FundTransfer.FundTransferActivity;
+import com.wiselap.accounts.FundTransferMethod.FundTransferMethodActivity;
+import com.wiselap.accounts.FundUsers.FundUsersActivity;
+import com.wiselap.accounts.FundUsers.FundUsersModule;
 import com.wiselap.accounts.Office.OfficeActivity;
 import com.wiselap.accounts.Personal.PersonalActivity;
 import com.wiselap.accounts.Personal.PersonalModule;
@@ -22,6 +27,7 @@ import com.wiselap.accounts.expense.AddExpensePackage.AddExpenseActivity;
 import com.wiselap.accounts.expense.AddExpensePackage.AddExpenseModule;
 import com.wiselap.accounts.expense.ExpensePackage.ExpenseModule;
 import com.wiselap.accounts.expense.ExpensePackage.ExpensesActivity;
+import com.wiselap.accounts.home_screen.HomeModule;
 import com.wiselap.accounts.home_screen.Homepage;
 
 import com.wiselap.accounts.SignIn.SignInModule;
@@ -49,7 +55,7 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector
     abstract ExpenseReportActivity bindsExpenseReportActivity();
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = HomeModule.class)
     abstract Homepage bindsHomepage();
 
     @ContributesAndroidInjector(modules = ExpenseModule.class)
@@ -90,5 +96,16 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = AddExpenseModule.class)
     abstract AddExpenseActivity bindsAddExpense();
 
+    @ContributesAndroidInjector
+    abstract ApplicationSettingActivity bindsApplicationSettingActivity();
+
+    @ContributesAndroidInjector
+    abstract FundTransferActivity bindsFundTransferActivity();
+
+    @ContributesAndroidInjector(modules = FundUsersModule.class)
+    abstract FundUsersActivity bindsFundUsersActivity();
+
+    @ContributesAndroidInjector
+    abstract FundTransferMethodActivity bindsFundTransferMethodActivity();
 
 }

@@ -9,8 +9,10 @@ import android.view.WindowManager;
 import com.wiselap.accounts.R;
 import com.wiselap.accounts.Select_Entity.SelectEntityActivity;
 import com.wiselap.accounts.base_class.BaseActivity;
+import com.wiselap.accounts.constants.AppConstants;
 import com.wiselap.accounts.databinding.ActivityOfficeBinding;
 import com.wiselap.accounts.home_screen.Homepage;
+import com.wiselap.accounts.model.AccountModel;
 
 import javax.inject.Inject;
 
@@ -27,6 +29,8 @@ public class OfficeActivity extends BaseActivity implements OfficeContract.View 
     String contact_no;
     String owner;
     String address;
+    private String Operation;
+    AccountModel accountModel;
 
 
     @Inject
@@ -37,8 +41,20 @@ public class OfficeActivity extends BaseActivity implements OfficeContract.View 
         super.onCreate(savedInstanceState);
         office_binding = DataBindingUtil.setContentView(this, R.layout.activity_office);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        office_binding.toolbar.title.setText(getString(R.string.Profile_Setup));
+        Operation = getIntent().getStringExtra(AppConstants.Operation);
+        if(Operation.equals(AppConstants.EDIT)){
+            accountModel = (AccountModel) getIntent().getSerializableExtra(AppConstants.profile);
+            office_binding.toolbar.title.setText("Edit Profile");
+            office_binding.next.setText("Update");
+            office_binding.contactEdit.setText(accountModel.getContactNo());
 
+            office_binding.nameEdit.setText(accountModel.getOfficeName());
+            office_binding.ownerEdit.setText(accountModel.getOwnerName());
+            office_binding.addressEdit.setText(accountModel.getAddress());
+        }
+        else if(Operation.equals(AppConstants.ADD)){
+            office_binding.toolbar.title.setText(getString(R.string.Profile_Setup));
+        }
         mPresenter.onAttach(this);
         office_binding.emailIdEdit.setText(mPresenter.getEmailId());
     }
@@ -86,18 +102,26 @@ public class OfficeActivity extends BaseActivity implements OfficeContract.View 
 
         switch (view.getId()){
             case R.id.backBtn:
-                startActivity(new Intent(OfficeActivity.this, SelectEntityActivity.class));
-                showMessage(getString(R.string.Entity_not_created));
                 finish();
                 break;
             case R.id.next:
                 if(fetch_data()){
-                    mPresenter.sendData(office_name, contact_no, owner, address);
-                    Intent intent = new Intent(OfficeActivity.this, Homepage.class);
-                    startActivity(intent);
-                    finish();
+
+                    if(Operation.equals(AppConstants.ADD)){
+                        mPresenter.sendData(office_name, contact_no, owner, address);
+                    }
+                    else if(Operation.equals(AppConstants.EDIT)){
+                        mPresenter.updateData(accountModel, office_name, contact_no, owner, address);
+                    }
                 }
                 break;
         }
+    }
+
+    @Override
+    public void intentToHome() {
+        Intent intent = new Intent(OfficeActivity.this, Homepage.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -31,7 +31,7 @@ public class ExpensesPresenter<V extends ExpensesContract.View> extends BasePres
     public void getExpense(ExpenseMethodModel expenseMethodModel) {
         Log.d("shhh", "onNext: "+new Gson().toJson(expenseMethodModel));
         getView().showLoadingDialog();
-        getDisposable().add(serviceProvider.getWrappedService().getExpense(getPreferenceUtils().getAccountingProfile(),expenseMethodModel)
+        getDisposable().add(serviceProvider.getWrappedService().getExpense(getPreferenceUtils().getShopAgentId(),expenseMethodModel)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
                 .observeOn(getSchedulerProvider().getUiScheduler())
                 .subscribeWith(new DisposableObserver<WrappedResponse<List<ExpenseReturnModel>>>() {

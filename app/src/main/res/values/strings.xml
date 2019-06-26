@@ -4,9 +4,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="addresserror">Please enter address</string>
     <string-array name="profile">
-        <item>Owner</item>
+        <item>Manager</item>
         <item>Sales Man</item>
         <item>Delivery Boy</item>
+    </string-array>
+
+    <string-array name="paymode">
+        <item>UPI</item>
+        <item>Bank Account</item>
+        <item>Cash</item>
     </string-array>
     <!-- Date Picker -->
     <string name="dateFormat" translatable="false">yyyy-MM-dd</string>
@@ -63,6 +69,11 @@
     <string name="Hint_Amount">Amount</string>
 
 
+    <string name="Approval">Approval :</string>
+
+    <string name="User_Name">User Name</string>
+    <string name="TotalExpense">Total Expense</string>
+
     <!-- Headers for activities-->
     <string name="Profile_Setup">Profile Setup</string>
     <string name="Report">Report</string>
@@ -71,8 +82,12 @@
     <string name="Calendar">Calendar</string>
     <string name="Configuration">Configuration</string>
 
+    <string name="ApplicationSetting">Application Setting</string>
+
     <string name="Add_Expense_Type">Add Expense Type</string>
     <string name="Edit_Expense_Type">Edit Expense Type</string>
+
+    <string name="Approval1">Approval</string>
 
 
     <!-- Invalid Comments -->
@@ -104,7 +119,7 @@
     <string name="Expense_Type_Edited">Expense Type Edited</string>
 
     <!--List Items-->
-    <!-- Select Account -->
+    <!-- Select AccountModel -->
     <string name="Expense_Report">Expense Report</string>
     <string name="Salary_Report">Salary Report</string>
 
@@ -116,6 +131,12 @@
         <item>Monthly</item>
     </string-array>
 
+    <!-- Yes/No List -->
+    <string-array name="YesNo">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
 
     <!-- Alert Dialogs -->
     <string name="alert">Alert!</string>
@@ -124,4 +145,6 @@
     <string name="No">No</string>
     <string name="Office">Office</string>
     <string name="Personal">Personal</string>
+    <string name="Pending">Pending</string>
+    <string name="History">History</string>
 </resources>

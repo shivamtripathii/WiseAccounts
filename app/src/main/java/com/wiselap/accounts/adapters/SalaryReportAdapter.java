@@ -51,8 +51,8 @@ public class SalaryReportAdapter extends RecyclerView.Adapter<SalaryReportAdapte
         TextView agent_name, amount;
         public SalaryViewHolder(@NonNull View itemView) {
             super(itemView);
-            agent_name = (TextView)itemView.findViewById(R.id.expense_type);
-            amount = (TextView)itemView.findViewById(R.id.expense_amount);
+            agent_name = (TextView)itemView.findViewById(R.id.usename);
+            amount = (TextView)itemView.findViewById(R.id.advance);
         }
     }
 }

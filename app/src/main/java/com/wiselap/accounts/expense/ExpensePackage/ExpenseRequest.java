@@ -12,8 +12,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ExpenseRequest {
-    @POST("getExpense/{accountingProfileId}")
-    Observable<WrappedResponse<List<ExpenseReturnModel>>> getExpense(@Path("accountingProfileId") long accountingProfileId,
+    @POST("getExpense/{shopAgentId}")
+    Observable<WrappedResponse<List<ExpenseReturnModel>>> getExpense(@Path("shopAgentId") long shopAgentId,
                                                                      @Body ExpenseMethodModel expenseMethodModel);
 
     @HTTP(method = "DELETE", path="deleteExpense", hasBody = true)

@@ -31,12 +31,14 @@ public class UserPresenter<V extends UserContract.view> extends BasePresenterImp
     @Override
     public void getUsers(UserMethodModel userMethodModel) {
         getView().showLoadingDialog();
+        Log.d("get, ", new Gson().toJson(userMethodModel));
         getDisposable().add(serviceProvider.getWrappedService().getUsers(userMethodModel)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
                 .observeOn(getSchedulerProvider().getUiScheduler())
                 .subscribeWith(new DisposableObserver<WrappedResponse<List<UserReturnModel>>>() {
                     @Override
                     public void onNext(WrappedResponse<List<UserReturnModel>> listWrappedResponse) {
+                        Log.d("get, ", new Gson().toJson(listWrappedResponse));
                         getView().setUsers(listWrappedResponse.getData());
                     }
 
@@ -66,11 +68,13 @@ public class UserPresenter<V extends UserContract.view> extends BasePresenterImp
                         if (wrappedResponse.getMeta().getId() == ResponseCode.SUCCESS) {
                             getView().refresh();
                         }
+                        Log.d("Delete, ", new Gson().toJson(wrappedResponse));
                         getView().showMessage(wrappedResponse.getMeta().getMessage());
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.d("DeleteE, ", new Gson().toJson(model));
                         getView().showMessage(NetUtils.getMessage(e));
                         getView().hideLoadingDialog();
                     }

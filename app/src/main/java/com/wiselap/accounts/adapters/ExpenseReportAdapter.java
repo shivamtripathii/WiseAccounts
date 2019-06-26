@@ -53,8 +53,8 @@ public class ExpenseReportAdapter extends RecyclerView.Adapter<ExpenseReportAdap
         OnExpenseReportListener onExpenseReportListener;
         public ExpenseViewHolder(@NonNull View itemView, OnExpenseReportListener onExpenseReportListener) {
             super(itemView);
-            type = (TextView) itemView.findViewById(R.id.expense_type);
-            amount = (TextView) itemView.findViewById(R.id.expense_amount);
+            type = (TextView) itemView.findViewById(R.id.usename);
+            amount = (TextView) itemView.findViewById(R.id.advance);
             this.onExpenseReportListener = onExpenseReportListener;
 
             itemView.setOnClickListener(this);

@@ -110,9 +110,9 @@ public class ExpensesActivity extends BaseActivity implements ExpensesContract.V
                     FancyToast.makeText(this, "Choose Expense to Edit", 20, R.drawable.ic, false).show();
                 else {
                     Intent intent = new Intent(ExpensesActivity.this, AddExpenseActivity.class);
-                    intent.putExtra("Expense Amount", expenseList.get(0).getExpense_amount());
+                    intent.putExtra("Expense Amount", expenseList.get(0).getExpenseAmount());
                     intent.putExtra("Expense Type", expenseList.get(0).getRemarks());
-                    intent.putExtra("Expense Name", expenseList.get(0).getExpense_name());
+                    intent.putExtra("Expense Name", expenseList.get(0).getExpenseName());
                     intent.putExtra("edit",expenseList.get(0));
 
                     intent.putExtra("edit", arrayList.get(k));

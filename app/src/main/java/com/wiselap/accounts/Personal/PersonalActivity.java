@@ -9,8 +9,10 @@ import android.view.WindowManager;
 import com.wiselap.accounts.R;
 import com.wiselap.accounts.Select_Entity.SelectEntityActivity;
 import com.wiselap.accounts.base_class.BaseActivity;
+import com.wiselap.accounts.constants.AppConstants;
 import com.wiselap.accounts.databinding.ActivityPersonalBinding;
 import com.wiselap.accounts.home_screen.Homepage;
+import com.wiselap.accounts.model.AccountModel;
 
 import javax.inject.Inject;
 
@@ -26,6 +28,8 @@ public class PersonalActivity extends BaseActivity implements PersonalContract.V
     String name;
     String contact_no;
     String address;
+    private String Operation;
+    AccountModel accountModel;
 
     @Inject
     PersonalPresenter<PersonalContract.View> mPresenter;
@@ -35,7 +39,19 @@ public class PersonalActivity extends BaseActivity implements PersonalContract.V
         super.onCreate(savedInstanceState);
         personal_binding = DataBindingUtil.setContentView(this, R.layout.activity_personal);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        personal_binding.toolbar.title.setText(getString(R.string.Profile_Setup));
+        Operation = getIntent().getStringExtra(AppConstants.Operation);
+        if(Operation.equals(AppConstants.EDIT)){
+            accountModel = (AccountModel) getIntent().getSerializableExtra(AppConstants.profile);
+            personal_binding.toolbar.title.setText("Edit Profile");
+            personal_binding.next.setText("Update");
+            personal_binding.contactEdit.setText(accountModel.getContactNo());
+
+            personal_binding.nameEdit.setText(accountModel.getName());
+            personal_binding.addressEdit.setText(accountModel.getAddress());
+        }
+        else if(Operation.equals(AppConstants.ADD)){
+            personal_binding.toolbar.title.setText(getString(R.string.Profile_Setup));
+        }
         mPresenter.onAttach(this);
         personal_binding.emailIdEdit.setText(mPresenter.getEmailId());
     }
@@ -75,22 +91,26 @@ public class PersonalActivity extends BaseActivity implements PersonalContract.V
     public void onClick(View view){
         switch (view.getId()){
             case R.id.backBtn:
-                startActivity(new Intent(PersonalActivity.this, SelectEntityActivity.class));
-                showMessage(getString(R.string.Entity_not_created));
                 finish();
                 break;
             case R.id.next:
-                nextBtn();
+                if(fetch_data()) {
+                    if(Operation.equals(AppConstants.ADD)){
+                        mPresenter.sendData(name, contact_no, address);
+                    }
+                    else if(Operation.equals(AppConstants.EDIT)){
+                        mPresenter.updateData(accountModel, name, contact_no, address);
+                    }
+
+                }
                 break;
         }
     }
 
-    private void nextBtn(){
-        if(fetch_data()) {
-            mPresenter.sendData(name, contact_no, address);
-            Intent intentToHome = new Intent(this, Homepage.class);
-            startActivity(intentToHome);
-            finish();
-        }
+    @Override
+    public void intentToHome() {
+        Intent intentToHome = new Intent(this, Homepage.class);
+        startActivity(intentToHome);
+        finish();
     }
 }

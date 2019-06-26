@@ -35,7 +35,7 @@ public class AddExpensePresenter<V extends AddExpenseContract.view> extends Base
 
     @Override
     public void addExpense(AddExpenseMethodModel addExpenseMethodModel) {
-        //Log.d("shivam", new Gson().toJson(addExpenseMethodModel));
+        Log.d("shivam", new Gson().toJson(addExpenseMethodModel));
         getView().showLoadingDialog();
         getDisposable().add(serviceProvider.getWrappedService().addExpense(addExpenseMethodModel)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
@@ -43,7 +43,7 @@ public class AddExpensePresenter<V extends AddExpenseContract.view> extends Base
                 .subscribeWith(new DisposableObserver<WrappedResponse<AddExpenseReturnModel>>() {
                     @Override
                     public void onNext(WrappedResponse<AddExpenseReturnModel> listWrappedResponse) {
-                        //Log.d("shivam", new Gson().toJson(listWrappedResponse));
+                        Log.d("shivam", new Gson().toJson(listWrappedResponse));
                     }
 
                     @Override
@@ -71,7 +71,7 @@ public class AddExpensePresenter<V extends AddExpenseContract.view> extends Base
 
     @Override
     public void setAdapter() {
-        getDisposable().add(serviceProvider.getWrappedService().getExpenseTypes(getPreferenceUtils().getAccountingProfile())
+        getDisposable().add(serviceProvider.getWrappedService().getExpenseTypes(getPreferenceUtils().getShopAgentId())
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
                 .observeOn(getSchedulerProvider().getUiScheduler())
                 .subscribeWith(new DisposableObserver<WrappedResponse<List<ExpenseType>>>() {

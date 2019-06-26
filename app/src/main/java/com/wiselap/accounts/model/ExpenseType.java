@@ -16,7 +16,7 @@ public class ExpenseType implements Serializable {
     @SerializedName(AppConstants.defaultAmount)
     private Double amount;
 
-    private Long accountingProfileId;
+    private Long shopAgentId;
 
     public ExpenseType(Integer id, String expense_name, String frequency, Double amount) {
         this.expense_name = expense_name;
@@ -57,12 +57,12 @@ public class ExpenseType implements Serializable {
         this.amount = amount;
     }
 
-    public Long getAccountingProfileId() {
-        return accountingProfileId;
+    public Long getShopAgentId() {
+        return shopAgentId;
     }
 
-    public void setAccountingProfileId(Long accountingProfileId) {
-        this.accountingProfileId = accountingProfileId;
+    public void setShopAgentId(Long shopAgentId) {
+        this.shopAgentId = shopAgentId;
     }
 }
 

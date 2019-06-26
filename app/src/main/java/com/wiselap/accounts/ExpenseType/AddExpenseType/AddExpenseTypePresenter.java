@@ -73,7 +73,7 @@ public class AddExpenseTypePresenter<V extends AddExpenseTypeContract.View> exte
 
     @Override
     public void addExpenseType(ExpenseType expenseType) {
-        expenseType.setAccountingProfileId(getPreferenceUtils().getAccountingProfile());
+        expenseType.setShopAgentId(getPreferenceUtils().getShopAgentId());
         Log.d("TAG","hjsgfkja"+new Gson().toJson(expenseType));
         getDisposable().add(serviceProvider.getWrappedService().addConfigurationExpenseTypes(expenseType)
         .subscribeOn(getSchedulerProvider().getIoScheduler())
@@ -107,7 +107,7 @@ public class AddExpenseTypePresenter<V extends AddExpenseTypeContract.View> exte
     public void updateExpenseType(ExpenseType expenseType) {
         Log.d(TAG, "UPDATE BODY " + new Gson().toJson(expenseType));
         getView().showLoadingDialog();
-        expenseType.setAccountingProfileId(getPreferenceUtils().getAccountingProfile());
+        expenseType.setShopAgentId(getPreferenceUtils().getShopAgentId());
         getDisposable().add(serviceProvider.getWrappedService().updateConfigurationExpenseTypes(expenseType)
            .subscribeOn(getSchedulerProvider().getIoScheduler())
            .observeOn(getSchedulerProvider().getUiScheduler())

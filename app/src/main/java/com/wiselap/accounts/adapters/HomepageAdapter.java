@@ -42,12 +42,6 @@ public class HomepageAdapter extends RecyclerView.Adapter<HomepageAdapter.Recycl
         recyclerViewHolder.imageView.setImageResource(images[i]);
         recyclerViewHolder.textView.setText(items[i]);
 
-        /*recyclerViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
 
     }
 

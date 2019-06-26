@@ -28,6 +28,7 @@ public class AddUserPresenter<V extends AddUserContract.view> extends BasePresen
     @Override
     public void getMeta(AddUserMethodModel addUserMethodModel) {
         getView().showLoadingDialog();
+        Log.d("Update, ", new Gson().toJson(addUserMethodModel));
         getDisposable().add(serviceProvider.getWrappedService().addUsers(addUserMethodModel)
                 .subscribeOn(getSchedulerProvider().getIoScheduler())
                 .observeOn(getSchedulerProvider().getUiScheduler())
@@ -35,6 +36,7 @@ public class AddUserPresenter<V extends AddUserContract.view> extends BasePresen
 
                     @Override
                     public void onNext(WrappedResponse wrappedResponse) {
+                        Log.d("Update, ", new Gson().toJson(wrappedResponse));
                         getView().sendMeta(wrappedResponse.getMeta().getId());
                     }
 
@@ -66,7 +68,7 @@ public class AddUserPresenter<V extends AddUserContract.view> extends BasePresen
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.d("Update, ", new Gson().toJson(model));
                     }
 
                     @Override

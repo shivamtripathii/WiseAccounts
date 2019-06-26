@@ -1,8 +1,8 @@
 package com.wiselap.accounts.expense.ExpensePackage;
 
 public class ExpenseMethodModel {
-    String startingDate;
-    String endingDate;
+    private String startingDate;
+    private String endingDate;
 
     public ExpenseMethodModel() {
         startingDate="";

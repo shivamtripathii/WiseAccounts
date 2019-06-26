@@ -8,7 +8,6 @@ public class AddUserMethodModel {
     private String userProfile;
     private String userId;
 
-
     public AddUserMethodModel(Long accountingProfileId, Long shopAgentId, String userName, String userProfile, String userId) {
         this.accountingProfileId = accountingProfileId;
         this.shopAgentId = shopAgentId;

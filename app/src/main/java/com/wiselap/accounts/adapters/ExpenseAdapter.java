@@ -34,8 +34,8 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseH
     @Override
     public void onBindViewHolder(@NonNull ExpenseHolder expenseHolder, int i) {
             ExpenseReturnModel expenseModel=arrayList.get(i);
-            expenseHolder.expensename.setText(expenseModel.getExpense_name());
-            expenseHolder.expenseamount.setText(String.valueOf(expenseModel.getExpense_amount()));
+            expenseHolder.expensename.setText(expenseModel.getExpenseName());
+            expenseHolder.expenseamount.setText(String.valueOf(expenseModel.getExpenseAmount()));
             expenseHolder.expensetype.setText(expenseModel.getRemarks());
             expenseHolder.expensedate.setText(expenseModel.getDate());
             expenseHolder.itemView.setOnClickListener(new View.OnClickListener() {

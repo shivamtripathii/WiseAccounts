@@ -81,7 +81,7 @@ public class ReportActivity extends BaseActivity implements ReportContract.View,
     public void createAdapter() {
 
         recyclerView = report_binding.recyclerView;
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         adapter = new ReportViewAdapter(image, type, this, this);
         recyclerView.setAdapter(adapter);
     }

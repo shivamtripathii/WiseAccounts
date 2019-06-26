@@ -6,6 +6,9 @@ public class AppConstants {
     public static String Operation = "Operation";
     public static String ADD = "ADD";
     public static String EDIT = "EDIT";
+    public static String office = "office";
+    public static String personal = "personal";
+
 
     public static final String Date_Format="yyyy-MM-dd hh:mm:ss";
     public static final String DATE_FORMAT_YYYYMMDD = "yyyy-MM-dd";
@@ -29,13 +32,16 @@ public class AppConstants {
     public static final String field = "field";
     public static final String id = "id";
 
+    //Profile
+
+    public static final String profile = "profile";
 
 
     public static final String message = "message";
 
      public static final String applicationUserId = "applicationUserId";
 
-
+    public static final String shopAgentId = "shopAgentId";
     public static final String uniqueIdentityField = "uniqueIdentityField";
 
     public static final String meta = "meta";
@@ -53,6 +59,9 @@ public class AppConstants {
     public static final String Expense_Type_Name="Expense Type";
     public static final String Frequency="Frequency";
     public static final String Default_Amount="Amount";
+
+    public static final String approvalItem = "approvalItem";
+
 
     //Frequency
     public static final int Daily = 0;
@@ -78,5 +87,4 @@ public class AppConstants {
 
     public static final String accountingProfileId = "accountingProfileId";
     public static final String applicationType = "applicationType";
-    public static final String shopAgentId="shopAgentId";
 }

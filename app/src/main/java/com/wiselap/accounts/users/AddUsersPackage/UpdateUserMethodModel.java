@@ -5,16 +5,15 @@ public class UpdateUserMethodModel {
     private Long accountingProfileId;
     private Long shopAgentId;
     private String userName;
-    private String userId;
     private String userProfile;
+    private String userId;
 
-
-    public UpdateUserMethodModel( Long accountingProfileId, Long shopAgentId, String userName, String userId, String userProfile) {
+    public UpdateUserMethodModel( Long accountingProfileId, Long shopAgentId, String userName, String userProfile,String userId) {
         this.accountingProfileId = accountingProfileId;
         this.shopAgentId = shopAgentId;
         this.userName = userName;
-        this.userId = userId;
         this.userProfile = userProfile;
+        this.userId = userId;
     }
 
     public Long getAccountingProfileId() {

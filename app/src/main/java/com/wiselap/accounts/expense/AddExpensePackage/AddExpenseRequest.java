@@ -18,8 +18,8 @@ public interface AddExpenseRequest {
     @POST("addExpense")
     Observable<WrappedResponse<AddExpenseReturnModel>> addExpense(@Body AddExpenseMethodModel addExpenseMethodModel);
 
-    @GET(URLS.getExpenseTypes+"/{accountingProfileId}")
-    Observable<WrappedResponse<List<ExpenseType>>> getExpenseTypes(@Path("accountingProfileId") long applicationUserId);
+    @GET(URLS.getExpenseTypes+"/{shopAgentId}")
+    Observable<WrappedResponse<List<ExpenseType>>> getExpenseTypes(@Path("shopAgentId") long applicationUserId);
 
     @PUT("updateExpense")
     Observable<WrappedResponse<AddExpenseReturnModel>> updateExpense(@Body UpdateExpenseMethodModel model);

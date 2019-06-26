@@ -69,7 +69,7 @@ public class AddUsersActivity extends BaseActivity implements AdapterView.OnItem
                     String profile = profilename.getSelectedItem().toString().trim();
                     String userid = activityAddUsersBinding.userID.getText().toString().trim();
                     if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.EDIT)) {
-                        presenter.updateUser(new UpdateUserMethodModel(accountingProfileId,preferenceUtils.getShopAgentId(),user,userid,profile));
+                        presenter.updateUser(new UpdateUserMethodModel(preferenceUtils.getAccountingProfile(),userReturnModel.getShopAgentId(),user,profile,userid));
                     } else if (getIntent().getStringExtra(AppConstants.Operation).equals(AppConstants.ADD)) {
                         presenter.getMeta(new AddUserMethodModel(preferenceUtils.getAccountingProfile(),preferenceUtils.getShopAgentId(), user, profile, userid));
                     }

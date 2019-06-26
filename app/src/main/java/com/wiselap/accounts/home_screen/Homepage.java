@@ -13,21 +13,27 @@ import android.view.View;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.wiselap.accounts.Approval.ApprovalDefaultActivity;
 import com.wiselap.accounts.Configuration.ConfigurationActivity;
+import com.wiselap.accounts.FundTransfer.FundTransferActivity;
+import com.wiselap.accounts.Office.OfficeActivity;
+import com.wiselap.accounts.Personal.PersonalActivity;
 import com.wiselap.accounts.Report.ReportActivity;
 import com.wiselap.accounts.SignIn.LoginActivity;
 
 import com.wiselap.accounts.R;
 import com.wiselap.accounts.adapters.HomepageAdapter;
 import com.wiselap.accounts.base_class.BaseActivity;
+import com.wiselap.accounts.constants.AppConstants;
 import com.wiselap.accounts.databinding.ActivityHomepageBinding;
 import com.wiselap.accounts.expense.ExpensePackage.ExpensesActivity;
+import com.wiselap.accounts.model.AccountModel;
 import com.wiselap.accounts.users.UsersPackage.UsersActivity;
 import com.wiselap.accounts.utils.PreferenceUtils;
 
 import javax.inject.Inject;
 
-public class Homepage extends BaseActivity implements HomepageAdapter.OnItemViewCLickListener {
+public class Homepage extends BaseActivity implements HomepageAdapter.OnItemViewCLickListener,HomeContract.View {
     GoogleSignInClient mGoogleSignInClient;
     String[] item = {"Users", "Expenses", "Reports", "Configuration", "Approval","Fund Transfer"};
     int[] images =
@@ -43,11 +49,14 @@ public class Homepage extends BaseActivity implements HomepageAdapter.OnItemView
     ActivityHomepageBinding binding;
     @Inject
     PreferenceUtils preferenceUtils;
+    @Inject
+    HomePresenter<HomeContract.View> mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_homepage);
+        mPresenter.onAttach(this);
         recyclerView = findViewById(R.id.recycler_view);
         toolbar = findViewById(R.id.toolbar_home);
         toolbar.setTitle("Homepage");
@@ -57,14 +66,24 @@ public class Homepage extends BaseActivity implements HomepageAdapter.OnItemView
         recyclerView.setAdapter(recyclerViewAdapter);
         binding.toolbarHome.backBtn.setImageResource(R.drawable.home);
         binding.toolbarHome.addBtn.setVisibility(View.GONE);
-        binding.toolbarHome.editBtn.setVisibility(View.GONE);
+
+        binding.toolbarHome.editBtn.setImageResource(R.drawable.ic_account_circle_black_24dp);
         binding.toolbarHome.delBtn.setImageResource(R.drawable.exit);
         binding.toolbarHome.title.setText("Home");
     }
 
     public void onClick(View view) {
-        AlertBox();
+        switch (view.getId()){
+            case R.id.del_btn:
+                AlertBox();
+                break;
+            case R.id.edit_btn:
+                mPresenter.getAccountDetails();
+
+        }
     }
+
+
 
     @Override
     public void onItemClick(int postion) {
@@ -81,6 +100,15 @@ public class Homepage extends BaseActivity implements HomepageAdapter.OnItemView
             startActivity(new Intent(this, ConfigurationActivity.class));
             //finish();
         }
+        else if (postion == 4) {
+            startActivity(new Intent(this, ApprovalDefaultActivity.class));
+            //finish();
+        }
+        else if (postion == 5) {
+            startActivity(new Intent(this, FundTransferActivity.class));
+            //finish();
+        }
+
     }
 
     private void AlertBox() {
@@ -102,5 +130,21 @@ public class Homepage extends BaseActivity implements HomepageAdapter.OnItemView
             public void onClick(DialogInterface dialog, int which) {
             }
         }).show();
+    }
+
+    @Override
+    public void intentToPersonal(AccountModel accountModel) {
+        Intent intent = new Intent(this, PersonalActivity.class);
+        intent.putExtra(AppConstants.Operation, AppConstants.EDIT);
+        intent.putExtra(AppConstants.profile, accountModel);
+        startActivity(intent);
+    }
+
+    @Override
+    public void intentToOffice(AccountModel accountModel) {
+        Intent intent = new Intent(this, OfficeActivity.class);
+        intent.putExtra(AppConstants.Operation, AppConstants.EDIT);
+        intent.putExtra(AppConstants.profile, accountModel);
+        startActivity(intent);
     }
 }

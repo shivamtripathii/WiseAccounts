@@ -5,44 +5,68 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class ExpenseReturnModel implements Serializable {
-    @SerializedName("Expensename")
-    String Expense_name;
-    String Remarks;
-    String Date;
-    Long expenseId;
-    Long Expense_amount;
-    Long ExpenseTypeId;
+    private Long expenseId;
+    private String statusChangeTime;
+    private Long expenseTypeId;
+    private String remarks;
+    private Long balanceAmount;
+    private Long expenseAmount;
+    private String expenseName;
+    private String date;
+    private String currentStatus;
+    private Long appDenyByShopAgentId;
 
-    public ExpenseReturnModel(String expense_name, String remarks, String date, Long expenseId, Long expense_amount, Long expenseTypeId) {
-        Expense_name = expense_name;
-        Remarks = remarks;
-        Date = date;
+
+    public ExpenseReturnModel(Long expenseId, String statusChangeTime, Long expenseTypeId, String remarks, Long balanceAmount, Long expenseAmount, String expenseName, String date, String currentStatus, Long appDenyByShopAgentId) {
         this.expenseId = expenseId;
-        Expense_amount = expense_amount;
-        ExpenseTypeId = expenseTypeId;
-    }
-
-    public String getExpense_name() {
-        return Expense_name;
-    }
-
-    public String getRemarks() {
-        return Remarks;
-    }
-
-    public String getDate() {
-        return Date;
+        this.statusChangeTime = statusChangeTime;
+        this.expenseTypeId = expenseTypeId;
+        this.remarks = remarks;
+        this.balanceAmount = balanceAmount;
+        this.expenseAmount = expenseAmount;
+        this.expenseName = expenseName;
+        this.date = date;
+        this.currentStatus = currentStatus;
+        this.appDenyByShopAgentId = appDenyByShopAgentId;
     }
 
     public Long getExpenseId() {
         return expenseId;
     }
 
-    public Long getExpense_amount() {
-        return Expense_amount;
+    public String getStatusChangeTime() {
+        return statusChangeTime;
     }
 
     public Long getExpenseTypeId() {
-        return ExpenseTypeId;
+        return expenseTypeId;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public Long getBalanceAmount() {
+        return balanceAmount;
+    }
+
+    public Long getExpenseAmount() {
+        return expenseAmount;
+    }
+
+    public String getExpenseName() {
+        return expenseName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public Long getAppDenyByShopAgentId() {
+        return appDenyByShopAgentId;
     }
 }
