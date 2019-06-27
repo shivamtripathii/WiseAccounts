@@ -6,7 +6,7 @@ public class AuthenticationUsingEmail {
 
     @SerializedName("uniqueIdentityField")
     private String email;
-
+    private String applicationTypeName = "WISE_ACCOUNTS";
     public AuthenticationUsingEmail(String email) {
         this.email=email;
     }

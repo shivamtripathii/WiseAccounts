@@ -8,6 +8,7 @@ import com.wiselap.accounts.ExpenseType.AddExpenseType.ApiModule;
 import com.wiselap.accounts.ExpenseType.ExpenseTypeActivity;
 import com.wiselap.accounts.ExpenseType.ExpenseTypeModule;
 import com.wiselap.accounts.FundTransfer.FundTransferActivity;
+import com.wiselap.accounts.FundTransferMethod.FundMethodModule;
 import com.wiselap.accounts.FundTransferMethod.FundTransferMethodActivity;
 import com.wiselap.accounts.FundUsers.FundUsersActivity;
 import com.wiselap.accounts.FundUsers.FundUsersModule;
@@ -105,7 +106,7 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = FundUsersModule.class)
     abstract FundUsersActivity bindsFundUsersActivity();
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = FundMethodModule.class)
     abstract FundTransferMethodActivity bindsFundTransferMethodActivity();
 
 }
